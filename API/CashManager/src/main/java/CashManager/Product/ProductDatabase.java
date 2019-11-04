@@ -5,8 +5,58 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class ProductDatabase extends Database{
+
+    public ResponseEntity getProductById(String id){
+        try
+        {
+            String query = "SELECT * FROM produit WHERE id_produit = " + id;
+            Statement st = this.conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next())
+            {
+                if(rs.getString("p_code") == null || rs.getString("p_code") == "")
+                    return new ResponseEntity<>("ERR_INT", HttpStatus.NOT_FOUND);
+                Product product = new Product(rs.getInt("id_produit"), rs.getString("p_code"), rs.getString("nom_produit"), rs.getInt("prix_unit"));
+                return new ResponseEntity<>(product, HttpStatus.OK);
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
+
+    public ResponseEntity getProductByCode(String code){
+        try
+        {
+            String query = "SELECT * FROM produit WHERE p_code = '" + code + "'";
+            Statement st = this.conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next())
+            {
+                if(rs.getString("p_code") == null || rs.getString("p_code") == "")
+                    return new ResponseEntity<>("ERR_INT", HttpStatus.NOT_FOUND);
+                Product product = new Product(rs.getInt("id_produit"), rs.getString("p_code"), rs.getString("nom_produit"), rs.getInt("prix_unit"));
+                return new ResponseEntity<>(product, HttpStatus.OK);
+            }
+            st.close();
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
 
     public ResponseEntity addProduct(Product product){
         String regex = "\\d+";
