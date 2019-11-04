@@ -1,14 +1,7 @@
 package CashManager.Login;
 import CashManager.Utils.UtilsFunctions;
-import net.minidev.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
 import java.util.Map;
-
-import static CashManager.Utils.UtilsFunctions.bodyToMap;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 public class LoginController {
