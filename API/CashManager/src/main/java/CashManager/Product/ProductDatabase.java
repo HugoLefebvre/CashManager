@@ -7,8 +7,33 @@ import org.springframework.http.ResponseEntity;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDatabase extends Database{
+
+    public ResponseEntity getAllProducts(){
+        try
+        {
+            String query = "SELECT * FROM produit";
+            Statement st = this.conn.createStatement();
+
+            ResultSet rs = st.executeQuery(query);
+            List<Product> listProducts = new ArrayList<>();
+            while (rs.next())
+            {
+                if(rs.getString("p_code") == null || rs.getString("p_code") == "")
+                    return new ResponseEntity<>("ERR_INT", HttpStatus.NOT_FOUND);
+                Product product = new Product(rs.getInt("id_produit"), rs.getString("p_code"), rs.getString("nom_produit"), rs.getInt("prix_unit"));
+                listProducts.add(product);
+            }
+            return new ResponseEntity<>(listProducts, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
     public ResponseEntity getProductById(String id){
         try

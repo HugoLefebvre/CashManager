@@ -9,6 +9,11 @@ public class ProductController {
 
     ProductDatabase productAction = new ProductDatabase();
 
+    @GetMapping("/product/all")
+    public ResponseEntity getAllProducts(){
+        return productAction.getAllProducts();
+    }
+
     @GetMapping("/product/id")
     public ResponseEntity getProductById(@RequestParam String id){
         return productAction.getProductById(id);
