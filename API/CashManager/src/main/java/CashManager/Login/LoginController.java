@@ -1,29 +1,20 @@
 package CashManager.Login;
 import CashManager.Utils.UtilsFunctions;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
 public class LoginController {
-    Login loginAction = new Login();
+    LoginDatabase loginAction = new LoginDatabase();
 
     @PostMapping("/login")
-    public String login(@RequestBody String body){
-        Map<String, String> bodyMap = UtilsFunctions.bodyToMap(body);
-
-        String username = UtilsFunctions.getValue(bodyMap, "username");
-        String password = UtilsFunctions.getValue(bodyMap, "password");
-
-        return loginAction.Login(username, password);
+    public ResponseEntity login(@RequestBody Login user){
+        return loginAction.Login(user);
     }
 
     @PostMapping("/register")
-    public String register(@RequestBody String body){
-        Map<String, String> bodyMap = UtilsFunctions.bodyToMap(body);
-
-        String username = UtilsFunctions.getValue(bodyMap, "username");
-        String password = UtilsFunctions.getValue(bodyMap, "password");
-
-        return loginAction.Register(username, password);
+    public ResponseEntity register(@RequestBody Register user){
+        return loginAction.Register(user);
     }
 }

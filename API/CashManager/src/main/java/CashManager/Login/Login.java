@@ -3,19 +3,25 @@ package CashManager.Login;
 import CashManager.Database.Database;
 
 public class Login {
-    public String Login(String username, String password){
-        Database db = new Database();
-        if(username == null || password == null)
-            return "ERR_EMPTY";
-        else
-            return "SUCCESS";
+    Integer id;
+    String email;
+    String password;
+
+    public Login(Integer id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
     }
 
-    public String Register(String username, String password){
+    public Integer getId() {
+        return id;
+    }
 
-        if(username == null || password == null)
-            return "ERR_EMPTY";
-        else
-            return "SUCCESS";
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
