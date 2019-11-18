@@ -1,8 +1,9 @@
-package CashManager.Login;
-import CashManager.Utils.UtilsFunctions;
+package CashManager.Controller;
+import CashManager.Model.Login;
+import CashManager.Database.LoginDatabase;
+import CashManager.Model.Register;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Map;
 
 @RestController
 public class LoginController {

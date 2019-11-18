@@ -1,5 +1,7 @@
-package CashManager.Product;
+package CashManager.Controller;
 
+import CashManager.Model.Product;
+import CashManager.Database.ProductDatabase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

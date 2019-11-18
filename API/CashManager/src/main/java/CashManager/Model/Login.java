@@ -1,4 +1,4 @@
-package CashManager.Login;
+package CashManager.Model;
 
 import CashManager.Database.Database;
 

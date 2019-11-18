@@ -1,4 +1,4 @@
-package CashManager.Product;
+package CashManager.Model;
 
 public class Product {
     Integer id;
@@ -14,7 +14,9 @@ public class Product {
         this.prix_unit = prix_unit;
     }
 
-    public Integer getId() { return id; }
+    public Integer getId() {
+        return id;
+    }
 
     public String getpCode() {
         return pCode;

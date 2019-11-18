@@ -1,6 +1,7 @@
-package CashManager.Login;
+package CashManager.Database;
 
-import CashManager.Database.Database;
+import CashManager.Model.Register;
+import CashManager.Model.Login;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -24,8 +25,8 @@ public class LoginDatabase extends Database {
 
             ResultSet rs = st.executeQuery(query);
             if(rs != null){
-                rs.last();    // moves cursor to the last row
-                int size = rs.getRow(); // get row id
+                rs.last();
+                int size = rs.getRow();
                 if(size != 0)
                     return new ResponseEntity<>("ERROR_EMAIL_TAKEN", HttpStatus.UNAUTHORIZED);
             }

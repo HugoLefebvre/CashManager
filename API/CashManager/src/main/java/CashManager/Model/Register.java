@@ -1,4 +1,6 @@
-package CashManager.Login;
+package CashManager.Model;
+
+import CashManager.Model.Login;
 
 public class Register extends Login {
 
