@@ -1,20 +1,14 @@
 package CashManager.Model;
 
-import CashManager.Database.Database;
+import CashManager.Service.LoginService;
 
-public class Login {
-    Integer id;
+public class Login implements LoginService {
     String email;
     String password;
 
-    public Login(Integer id, String email, String password) {
-        this.id = id;
+    public Login(String email, String password) {
         this.email = email;
         this.password = password;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getEmail() {

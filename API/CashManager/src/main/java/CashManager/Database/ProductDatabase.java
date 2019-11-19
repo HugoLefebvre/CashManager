@@ -1,6 +1,5 @@
 package CashManager.Database;
 
-import CashManager.Database.Database;
 import CashManager.Model.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDatabase extends Database{
+public class ProductDatabase extends Database {
 
     public ResponseEntity getAllProducts(){
         try

@@ -1,6 +1,8 @@
 package CashManager.Model;
 
-public class Product {
+import CashManager.Service.ProductService;
+
+public class Product implements ProductService {
     Integer id;
     String pCode;
     String name;
