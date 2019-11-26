@@ -23,16 +23,32 @@ public class CartController {
     @Autowired
     private ArticleRepository articleRepository;
 
-    @GetMapping("/getUserCart/{id}")
+    @GetMapping("/user/{id}")
     List<Article> getCartByUserId(@PathVariable Integer id){
-        List<Integer> idArticleList = cartRepository.getUserCart(id);
+        List<Cart> idArticleList = cartRepository.getByIdUser(id);
         List<Article> articleList = new ArrayList<>();
         if(idArticleList != null){
-            for(Integer idArticle : idArticleList) {
-                articleList.add(articleRepository.findById(idArticle).get());
+            for(Cart cart : idArticleList) {
+                articleList.add(articleRepository.findById(cart.getIdArticle()).get());
             }
         }
         return articleList;
+    }
+
+    @GetMapping("/user/{id}/total")
+    Integer getUserTotalCart(@PathVariable Integer id){
+        Integer sum = 0;
+        List<Cart> idArticleList = cartRepository.getByIdUser(id);
+        List<Article> articleList = new ArrayList<>();
+        if(idArticleList != null){
+            for(Cart cart : idArticleList) {
+                articleList.add(articleRepository.findById(cart.getIdArticle()).get());
+            }
+            for(Article article : articleList){
+                sum += article.getPrice();
+            }
+        }
+        return sum;
     }
 
 
@@ -43,6 +59,18 @@ public class CartController {
         return cart;
     }
 
+    @DeleteMapping("/user/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    ResponseEntity deleteFromCart(@PathVariable Integer id){
+        cartRepository.deleteAllByIdUser(id);
+        return new ResponseEntity("Successfully deleted", HttpStatus.OK);
+    }
 
+    @DeleteMapping("/user/{iduser}/article/{idarticle}")
+    @ResponseStatus(HttpStatus.OK)
+    ResponseEntity deleteArticleFromCart(@PathVariable Integer iduser, @PathVariable Integer idarticle){
+        cartRepository.deleteByIdArticleAndIdUser(idarticle, iduser);
+        return new ResponseEntity("Successfully deleted", HttpStatus.OK);
+    }
 
 }
