@@ -6,6 +6,6 @@ import CashManager.model.User;
 import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
-    @Query(value = "SELECT * FROM user where email = :email LIMIT 1", nativeQuery = true)
-    User findUserByEmail(@Param("email") String email);
+
+    User getByEmail(String email);
 }

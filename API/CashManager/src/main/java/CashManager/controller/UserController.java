@@ -24,7 +24,7 @@ public class UserController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity login(@Valid @RequestBody User user){
-        User dbUser = userRepository.findUserByEmail(user.getEmail());
+        User dbUser = userRepository.getByEmail(user.getEmail());
         if(dbUser != null){
             boolean passwordMatch = PasswordUtils.verifyUserPassword(user.getPassword(), dbUser.getPassword(), dbUser.getSalt());
             if(passwordMatch)
@@ -36,7 +36,7 @@ public class UserController {
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity register(@Valid @RequestBody User user){
-        User dbUser = userRepository.findUserByEmail(user.getEmail());
+        User dbUser = userRepository.getByEmail(user.getEmail());
         if(dbUser == null){
             String salt = PasswordUtils.getSalt(30);
             user.setSalt(salt);

@@ -28,7 +28,7 @@ public class ArticleController {
 
     @GetMapping("/code/{code}")
     Article getArticleByCode(@PathVariable String code){
-        return articleRepository.findArticleByCode(code);
+        return articleRepository.getByCode(code);
     }
 
     @PostMapping
