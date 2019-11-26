@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="150dp"
+    android:orientation="horizontal"
+    android:maxHeight="230dp">
+
+    <ImageView
+        android:layout_width="123dp"
+        android:layout_height="match_parent"
+        />
+
+    <RelativeLayout
+        android:layout_width="290dp"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/pcode"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            android:padding="8dp"
+            android:textColor="@color/Green"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/pcode"
+            android:layout_marginBottom="86dp"
+            android:padding="8dp"
+            android:textColor="#000"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/prixUnit"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/pcode"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="141dp"
+            android:layout_marginRight="141dp"
+            android:layout_marginBottom="-1dp"
+            android:padding="8dp"
+            android:textColor="#000"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="58dp"
+            android:layout_height="43dp"
+            android:layout_above="@+id/pcode"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toStartOf="@+id/prixUnit"
+            android:layout_toLeftOf="@+id/prixUnit"
+            android:text=" Prix: "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22dp" />
+    </RelativeLayout>
+</LinearLayout>
