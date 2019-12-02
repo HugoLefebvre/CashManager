@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ProductActivity"
+    tools:context=".activities.ArticleActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
@@ -27,8 +27,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="399dp"
-        android:layout_height="582dp"
+        android:layout_width="404dp"
+        android:layout_height="575dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,13 +54,15 @@
 
     <TextView
         android:id="@+id/tv_addnewproduct"
-        android:layout_width="186dp"
-        android:layout_height="37dp"
-        android:text="add New article"
+        android:layout_width="149dp"
+        android:layout_height="33dp"
+        android:text="Add New article"
         android:textColor="@color/black"
         android:textSize="21dp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

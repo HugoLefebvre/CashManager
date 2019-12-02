@@ -1,7 +1,6 @@
-package com.example.productlist
+package com.example.productlist.model
 
 data class User (
-    val id_user : Int,
     val email :String,
     val password :String
 )
