@@ -1,0 +1,11 @@
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/model/Cart.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/repository/UserRepository.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/repository/CartRepository.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/controller/UserController.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/controller/ArticleController.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/utils/PasswordUtils.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/controller/CartController.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/model/User.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/Application.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/model/Article.java
+/home/nothomb/Documents/CashManager/API/CashManager/src/main/java/CashManager/repository/ArticleRepository.java
