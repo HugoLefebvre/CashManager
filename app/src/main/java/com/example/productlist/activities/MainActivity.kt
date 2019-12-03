@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.productlist.R
 import com.example.productlist.api.ApiService
+import com.example.productlist.api.RetrofitClient
 import com.example.productlist.model.User
 import com.google.gson.JsonElement
 import kotlinx.android.synthetic.main.login.*
@@ -50,11 +51,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val retrofit = Retrofit.Builder()
-                .baseUrl("http://172.17.0.1:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-            val api = retrofit.create(ApiService::class.java)
+            val api = RetrofitClient.retrofit.create(ApiService::class.java)
 
             var user = User(email, password)
 
@@ -75,9 +72,11 @@ class MainActivity : AppCompatActivity() {
                             return
                         }
                         if (je.asJsonPrimitive.isNumber) {
-                            d("hi", "okay")
-                            status = "logged in succesfulyy"
+
+                            d("the code", "okay ${je.asJsonPrimitive.asInt}")
+                            status = "logged in successfully "
                             val intent = Intent(this@MainActivity, ArticleActivity::class.java)
+                            intent.putExtra("idUser", je.asJsonPrimitive.asInt)
                             startActivity(intent)
                             Toast.makeText(this@MainActivity, status, Toast.LENGTH_SHORT).show()
 

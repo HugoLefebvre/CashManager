@@ -37,30 +37,6 @@
 
 
 
-    <TextView
-        android:id="@+id/tv_addnewproduct"
-        android:layout_width="149dp"
-        android:layout_height="33dp"
-        android:text="Add New article"
-        android:textColor="@color/black"
-        android:textSize="21dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_cart"
-        android:layout_width="73dp"
-        android:layout_height="63dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="668dp"
-        android:background="@drawable/panier"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

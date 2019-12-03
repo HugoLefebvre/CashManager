@@ -50,30 +50,30 @@ interface ApiService {
 
     //GET all the articles in the user’s cart
     @GET("/cart/user/{id}")
-    fun getProduct(@Path("id")id : Int): Call<List<Article>>
+    fun getArticle(@Path("id")id : Int): Call<List<Article>>
 
     //GET the total price of the user’s cart
     @GET("/cart/user/{id}/total/")
-    fun total(@Path("id")id : Int): Call<Int>
+    fun gettotal(@Path("id")id : Int): Call<Int>
 
     //POST
 
     //Add new article in a user’s cart
     @POST("/cart/")
-    fun addArticle(@Body cart: Cart): Call<JsonElement>
+    fun addArticle(@Body cart: Cart): Call<Cart>
 
     //DELETE
 
     // Delete all articles in the user’s cart
-    @POST("/cart/user/{id}")
+    @DELETE("/cart/user/{id}")
     fun deleteArticles(@Path("id")id: Int) :Call<JsonElement>
 
-//   Cart/user/{id of the user}/article/{id of the article}
-    //Delete all articles with given id in the user’s cart
-    @POST("/cart/user/{idUser}/article/{idArticle}")
+    //Cart/user/{id of the user}/article/{id of the article}
+    //Delete article with given id in the user’s cart
+    @DELETE("/cart/user/{idUser}/article/{idArticle}")
     fun deleteArticleUser(@Path("idUser")idUser : Int,
-                          @Path("idProduct")idProduct : Int
-                        ):Call<JsonElement>
+                          @Path("idArticle")idProduct : Int
+                        ):Call<String>
 
 
 

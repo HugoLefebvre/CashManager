@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CartActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_row" />
+
+
+    <TextView
+        android:id="@+id/tv_goPay"
+        android:layout_width="125dp"
+        android:layout_height="42dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="280dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginBottom="617dp"
+        android:paddingTop="10dp"
+        android:text="payer ma facture"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_bill"
+        android:layout_width="161dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/button_rectangle_green"
+        android:text="Total: $234.00"
+        android:textColor="@color/White"
+        android:textSize="20dp"
+        android:textStyle="italic" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="34dp"
+        android:layout_height="3dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/alert_dark_frame" />
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

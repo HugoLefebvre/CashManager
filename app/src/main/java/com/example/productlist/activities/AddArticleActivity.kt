@@ -30,9 +30,11 @@ class AddArticleActivity : AppCompatActivity() {
         setContentView(R.layout.addarticle)
 
         Logo.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ArticleActivity::class.java)
             startActivity(intent)
         }
+
+
 
         btn_add.setOnClickListener(){
 
@@ -62,14 +64,14 @@ class AddArticleActivity : AppCompatActivity() {
             api.createArticle(article)
                 .enqueue(object : Callback<Article>{
                     override fun onResponse(call: Call<Article>, response: Response<Article>) {
-                        d("hi","ok ${response.body()}")
-                        Toast.makeText(this@AddArticleActivity,"the Product had been added Successfully !", Toast.LENGTH_LONG).show()
+                        d("the code","onResponse ${response.body()}")
+                        Toast.makeText(this@AddArticleActivity,"the Product has been added Successfully!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@AddArticleActivity, ArticleActivity::class.java)
                         startActivity(intent)
 
                     }
                     override fun onFailure(call: Call<Article>, t: Throwable) {
-                        d("hi","non ${t.cause}")
+                        d("The code","onFailure ${t.cause}")
                     }
                 })
         }
