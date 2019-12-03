@@ -73,7 +73,7 @@ class DetailsActivity: AppCompatActivity() {
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build()
 
-            val idUser : Int = intent.getIntExtra("idUser",1)
+            val idUser : Int = intent.getIntExtra("idUser",5)
             val idArticle : Int = intent.getIntExtra("id",1)
 
             val api = retrofit.create(ApiService::class.java)
