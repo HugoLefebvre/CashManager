@@ -1,0 +1,7 @@
+version: '3'
+services:
+  back:
+    image: openjdk:8-jdk-alpine
+    build: ./API
+    ports:
+        - "8080:8080"
