@@ -8,7 +8,7 @@ import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.productlist.ArticleAdapter
+import com.example.productlist.api.ArticleAdapter
 import com.example.productlist.R
 import com.example.productlist.api.ApiService
 import com.example.productlist.api.RetrofitClient
@@ -33,35 +33,30 @@ class ArticleActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        Logo.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-
-
         val api = RetrofitClient.retrofit.create(ApiService::class.java)
 
         api.fetchAllArticle()
             .enqueue(object : Callback<List<Article>> {
 
             override fun onResponse(call: Call<List<Article>>,response: Response<List<Article>>) {
-                showData(response.body()!!)
+                val i=intent.getIntExtra("idUser",50)
+                System.out.println("from main to article activity "+i)
+                showData(response.body()!!, i)
             }
-
             override fun onFailure(call: Call<List<Article>>, t: Throwable) {
-                d("basma", "onFailure")
+                d("the code", "onFailure")
             }
             })
-
-
     }
 
-    fun showData(articles: List<Article>) {
+    fun showData(articles: List<Article>, i :Int) {
         recyclerView.apply {
             layoutManager = GridLayoutManager(this@ArticleActivity,2)
-            adapter = ArticleAdapter(articles)
+            adapter = ArticleAdapter(articles,i)
+
         }
+
+
     }
 
 

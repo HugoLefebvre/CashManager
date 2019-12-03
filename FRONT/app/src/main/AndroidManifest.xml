@@ -27,6 +27,8 @@
         <activity android:name=".activities.RegisterActivity"></activity>
         <activity android:name=".activities.AddArticleActivity"></activity>
         <activity android:name=".activities.DetailsActivity"></activity>
+        <activity android:name=".activities.BillActivity"></activity>
+        <activity android:name=".activities.CartActivity"></activity>
     </application>
 
 </manifest>

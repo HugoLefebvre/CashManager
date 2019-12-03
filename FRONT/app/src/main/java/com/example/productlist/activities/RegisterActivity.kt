@@ -33,29 +33,29 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btn_register.setOnClickListener{
+        btn_register.setOnClickListener {
 
             var status: String
-            var email:String = et_email.text.toString().trim()
-            var password:String = et_password.text.toString().trim()
+            var email: String = et_email.text.toString().trim()
+            var password: String = et_password.text.toString().trim()
             var conpassword: String = et_confpassword.text.toString().trim()
-            if (email.isEmpty() || password.isEmpty() || conpassword.isEmpty() || password!=conpassword){
-                if (email.isEmpty()){
+            if (email.isEmpty() || password.isEmpty() || conpassword.isEmpty() || password != conpassword) {
+                if (email.isEmpty()) {
                     et_email.error = "Please enter your email"
                     et_email.requestFocus()
                     return@setOnClickListener
                 }
-                if (password.isEmpty()){
+                if (password.isEmpty()) {
                     et_password.error = "Please enter your password"
                     et_password.requestFocus()
                     return@setOnClickListener
                 }
-                if (conpassword.isEmpty()){
+                if (conpassword.isEmpty()) {
                     et_confpassword.error = "Please enter your password"
                     et_confpassword.requestFocus()
                     return@setOnClickListener
                 }
-                if(password!=conpassword){
+                if (password != conpassword) {
                     et_password.error = "The password doesn't match!"
                     et_confpassword.error = "The password doesn't match!"
                     et_password.requestFocus()
@@ -71,13 +71,21 @@ class RegisterActivity : AppCompatActivity() {
 
             api.register(user)
                 .enqueue(object : Callback<JsonElement> {
-                    override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
-                        d("hi","ok")
-                        Toast.makeText(this@RegisterActivity,"you have been registred Successfully", Toast.LENGTH_LONG).show()
+                    override fun onResponse(
+                        call: Call<JsonElement>,
+                        response: Response<JsonElement>
+                    ) {
+                        d("hi", "ok")
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "you have been registred Successfully",
+                            Toast.LENGTH_LONG
+                        ).show()
 
                     }
+
                     override fun onFailure(call: Call<JsonElement>, t: Throwable) {
-                        d("hi","ok")
+                        d("hi", "ok")
                     }
                 })
         }
