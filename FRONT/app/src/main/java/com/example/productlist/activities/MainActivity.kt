@@ -37,15 +37,15 @@ class MainActivity : AppCompatActivity() {
         login_btn.setOnClickListener {
 
             var status: String
-            var email:String = et_email.text.toString().trim()
-            var password:String = et_password.text.toString().trim()
+            var email: String = et_email.text.toString().trim()
+            var password: String = et_password.text.toString().trim()
 
-            if (email.isEmpty()){
+            if (email.isEmpty()) {
                 et_email.error = "Please enter your email"
                 et_email.requestFocus()
                 return@setOnClickListener
             }
-            if (password.isEmpty()){
+            if (password.isEmpty()) {
                 et_password.error = "Please enter your password"
                 et_password.requestFocus()
                 return@setOnClickListener
@@ -60,7 +60,11 @@ class MainActivity : AppCompatActivity() {
                     override fun onFailure(call: Call<JsonElement>, t: Throwable) {
                         d("Sorry", "Please check your connection or your Server")
                     }
-                    override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
+
+                    override fun onResponse(
+                        call: Call<JsonElement>,
+                        response: Response<JsonElement>
+                    ) {
 
                         var je = response.body()
                         if (je == null || !je.isJsonPrimitive) {

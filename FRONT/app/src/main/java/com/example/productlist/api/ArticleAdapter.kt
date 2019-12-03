@@ -21,7 +21,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class ArticleAdapter(private val article: List<Article>,val i : Int) : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
+class ArticleAdapter(private val article: List<Article>, val i: Int) :
+    RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.article_row, parent, false)

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.productlist.R
 import kotlinx.android.synthetic.main.activity_bill.*
 
-class BillActivity: AppCompatActivity() {
+class BillActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.HONEYCOMB)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

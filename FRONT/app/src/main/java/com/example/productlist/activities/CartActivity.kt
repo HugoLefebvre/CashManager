@@ -22,7 +22,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartActivity: AppCompatActivity() {
+class CartActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.HONEYCOMB)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +30,11 @@ class CartActivity: AppCompatActivity() {
         getActionBar()?.hide()
         setContentView(R.layout.activity_row)
 
-        val idUser = intent.getIntExtra("idUser", 50)
+        val idUser = intent.getIntExtra("idUser", 5)
         System.out.println(idUser)
         val api = RetrofitClient.retrofit.create(ApiService::class.java)
+
+        //tv_deleteAllArticle
 
         tv_goPay.setOnClickListener {
             val intent = Intent(this@CartActivity, BillActivity::class.java)
@@ -40,13 +42,14 @@ class CartActivity: AppCompatActivity() {
         }
 
         api.gettotal(idUser)
-            .enqueue(object: Callback<Int>{
+            .enqueue(object : Callback<Int> {
                 override fun onResponse(call: Call<Int>, response: Response<Int>) {
-                    d("basma", "onResponse ${response.body()}")
-                    btn_bill.text = "Total: $"+response.body().toString()+",00"
+                    d("onResponse", "onResponse ${response.body()}")
+                    btn_bill.text = "Total: $" + response.body().toString() + ",00"
                 }
+
                 override fun onFailure(call: Call<Int>, t: Throwable) {
-                    d("basma", "NOOOOON ${t.message}")
+                    d("onFailure", "ERROR: ${t.message}")
                 }
             })
 
@@ -56,23 +59,22 @@ class CartActivity: AppCompatActivity() {
                     call: Call<List<Article>>,
                     response: Response<List<Article>>
                 ) {
-                    d("basma", "onResponse ${response.body()!![1].code}")
+                    d("basma", "onResponse ${response.body()!![0].name}")
                     showData(response.body()!!)
                 }
-
                 override fun onFailure(call: Call<List<Article>>, t: Throwable) {
                     d("basma", "onFailure")
                 }
             })
 
     }
+
     fun showData(articles: List<Article>) {
-            recyclerView.apply {
-                layoutManager = LinearLayoutManager(this@CartActivity)
-                adapter = CartAdapter(articles)
-            }
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@CartActivity)
+            adapter = CartAdapter(articles)
         }
-
-
-
     }
+
+
+}

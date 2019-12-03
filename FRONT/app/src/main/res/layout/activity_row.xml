@@ -28,7 +28,24 @@
         android:layout_marginLeft="290dp"
         android:layout_marginBottom="617dp"
         android:paddingTop="10dp"
-        android:text="payer ma facture"
+        android:text="Check my Bill"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_deleteAllArticle"
+        android:layout_width="143dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginBottom="617dp"
+        android:layout_marginTop="50dp"
+        android:paddingTop="10dp"
+        android:text="Delete All My Articles"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textStyle="bold" />

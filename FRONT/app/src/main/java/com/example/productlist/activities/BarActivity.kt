@@ -14,12 +14,5 @@ class BarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.bar)
-
-        /*Logo.setOnClickListener{
-            val intent = Intent(this, ArticleActivity::class.java)
-            d("hellooo","ids")
-            startActivity(intent)
-        }*/
     }
-
-    }
+}

@@ -33,12 +33,6 @@ class ArticleActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        Logo.setOnClickListener {
-            val intent = Intent(this, ArticleActivity::class.java)
-            startActivity(intent)
-        }
-
-
         val api = RetrofitClient.retrofit.create(ApiService::class.java)
 
         api.fetchAllArticle()

@@ -29,14 +29,8 @@ class AddArticleActivity : AppCompatActivity() {
         getActionBar()?.hide()
         setContentView(R.layout.addarticle)
 
-        Logo.setOnClickListener {
-            val intent = Intent(this, ArticleActivity::class.java)
-            startActivity(intent)
-        }
 
-
-
-        btn_add.setOnClickListener(){
+        btn_add.setOnClickListener{
 
 
             val code = et_code.text.toString().trim()
@@ -60,7 +54,7 @@ class AddArticleActivity : AppCompatActivity() {
             }
 
             val api = RetrofitClient.retrofit.create(ApiService::class.java)
-            var article = Article(23,code,name, price)
+            var article = Article(35,code,name, price)
             api.createArticle(article)
                 .enqueue(object : Callback<Article>{
                     override fun onResponse(call: Call<Article>, response: Response<Article>) {
