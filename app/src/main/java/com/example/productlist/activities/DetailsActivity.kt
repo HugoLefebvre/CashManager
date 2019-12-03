@@ -66,7 +66,7 @@ class DetailsActivity: AppCompatActivity() {
                 })
 
         }
-        btn_deleteCart.setOnClickListener {
+    /*    btn_deleteCart.setOnClickListener {
 
             val retrofit = Retrofit.Builder()
                 .baseUrl("http://172.17.0.1:8080/")
@@ -87,7 +87,7 @@ class DetailsActivity: AppCompatActivity() {
                     }
                 })
         }
-
+*/
 
         val iduser : Int = intent.getIntExtra("idUser",100)
         System.out.println("aloooors  from Details "+iduser)
